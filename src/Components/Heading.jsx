@@ -14,9 +14,4 @@ Heading.propTypes = {
   subtitle: PropTypes.string
 };
 
-Heading.defaultProps = {
-  title: 'Default Title',
-  subtitle: 'Default Subtitle'
-};
-
 export default Heading;

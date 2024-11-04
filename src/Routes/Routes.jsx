@@ -5,15 +5,33 @@ import Home from "../Pages/Home";
 import Statistics from "../Pages/Statistics";
 import Dashboard from "../Pages/Dashboard";
 import Support from "../Pages/Support";
+import NotFound from "../Components/NotFound";
+import DefaultCategories from "../Components/DefaultCategories/DefaultCategories";
+
 
 const route=createBrowserRouter([
     {
         path:'/',
         element:<InitialLayout />,
+        errorElement:<NotFound />,
         children:[
             {
                 path:'/',
-                element:<Home />
+                element:<Home />,
+                loader:()=>fetch('../CategoryName.json'),
+                children:[
+                    {
+                        path:'/',
+                        element:<DefaultCategories />,
+                        loader:()=>fetch('../Category.json')
+                    },
+                
+                    {
+                        path:'/defaultCategories/:category_name',
+                        element:<DefaultCategories />,
+                        loader:()=>fetch('../Category.json')
+                    },
+                ]
             },
             {
                 path:'/statistics',
