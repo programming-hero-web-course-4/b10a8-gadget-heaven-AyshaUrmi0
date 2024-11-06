@@ -14,7 +14,7 @@ const Dashboard = () => {
           <Heading title="Dashboard" subtitle="Manage your cart and wishlist items here."/>
           </div>
             
-            {/* Tab Buttons */}
+           
             <div className="flex items-center justify-center mb-6 space-x-4">
                 <button
                     onClick={() => setActiveTab("cart")}

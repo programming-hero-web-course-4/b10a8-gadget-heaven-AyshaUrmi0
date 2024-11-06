@@ -11,18 +11,18 @@ export const CartProvider = ({ children }) => {
       if (!cart.some((item) => item.product_id === product.product_id)) {
         setCart((prevCart) => {
           const newCart = [...prevCart, product];
-          console.log("Updated Cart:", newCart); // Log the updated cart state
+          console.log("Updated Cart:", newCart); 
           return newCart;
         });
       }
     };
     
     const handleAddToWishlist = (product) => {
-      console.log("Before Adding Wishlist:", wishlist);  // Log before update
+      console.log("Before Adding Wishlist:", wishlist);  
       if (!wishlist.some((item) => item.product_id === product.product_id)) {
         setWishlist((prevWishlist) => {
           const newWishlist = [...prevWishlist, product];
-          console.log("Updated Wishlist:", newWishlist);  // Log after update
+          console.log("Updated Wishlist:", newWishlist);  
           return newWishlist;
         });
       }
@@ -30,12 +30,11 @@ export const CartProvider = ({ children }) => {
     
     
 
-    // Remove product from the cart
-    const handleRemoveFromCart = (productId) => {
+       const handleRemoveFromCart = (productId) => {
         setCart((prevCart) => prevCart.filter((item) => item.product_id !== productId));
     };
    
-    // Remove product from the wishlist
+
     const handleRemoveFromWishlist = (productId) => {
         setWishlist((prevWishlist) => prevWishlist.filter((item) => item.product_id !== productId));
     };

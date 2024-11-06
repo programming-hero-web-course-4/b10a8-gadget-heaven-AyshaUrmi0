@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ cartCount, wishlistCount }) => {

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-import { CartContext } from './CardContext'; // Import the context
+import { CartContext } from './CardContext'; 
 import Heading from "./Heading";
 
 const CardCategory = () => {
@@ -25,7 +25,7 @@ const CardCategory = () => {
 
     return (
         <div className="relative flex flex-col items-center min-h-screen mb-20 bg-gray-100">
-            {/* Banner Section */}
+           
             <div className="relative flex items-center justify-center w-full h-64 text-white bg-purple-600">
                 <div className="text-center">
                     <Heading title="Product Details" subtitle="Explore the features and specifications of our top-rated gadgets, designed to elevate your tech experience."/>
@@ -45,13 +45,13 @@ const CardCategory = () => {
                         />
                     </div>
 
-                    {/* Product Details */}
+                   
                     <div className="md:w-2/3 md:ml-8">
                         <h2 className="text-3xl font-semibold text-gray-800">{product.product_title}</h2>
                         <p className="mt-2 text-xl font-bold text-green-600">Price: ${product.price.toFixed(2)}</p>
                         <p className="mt-2 text-gray-700">{product.description}</p>
 
-                        {/* Specifications */}
+                       
                         <div className="mt-4">
                             <h3 className="text-lg font-semibold text-gray-800">Specification:</h3>
                             <ul className="list-disc list-inside">
@@ -61,7 +61,7 @@ const CardCategory = () => {
                             </ul>
                         </div>
 
-                        {/* Availability and Rating */}
+                       
                         <div className="flex items-center mt-4">
                             <span className={`text-sm font-semibold mr-4 ${product.availability ? "text-green-600" : "text-red-600"}`}>
                                 {product.availability ? "In Stock" : "Out of Stock"}
@@ -73,9 +73,9 @@ const CardCategory = () => {
                             </div>
                         </div>
 
-                        {/* Action Buttons */}
+                       
                         <div className="flex mt-6">
-                            {/* Add to Cart Button */}
+                           
                             <button 
                                 onClick={(
                                     
@@ -88,7 +88,7 @@ const CardCategory = () => {
                                 Add to Cart
                             </button>
 
-                            {/* Add to Wishlist Button */}
+                           
                             <button 
                                 onClick={() =>{
                                     console.log("Add to Cart wishlist", product); 
