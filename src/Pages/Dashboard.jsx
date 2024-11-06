@@ -7,7 +7,7 @@ const Dashboard = () => {
         <div className="flex flex-col items-center text-center text-white hero-content">
           <div>
           <Heading
-              title="Stay Ahead with Our Latest Tech Gadgets and Accessories!"
+              title="Dashboard"
               subtitle="Discover cutting-edge devices that keep you on the forefront of technology. Experience the future with Gadget Heaven."
             />
            
