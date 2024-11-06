@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const Allcategory = ({ CategoryName }) => {
-  console.log("CategoryName:", CategoryName);
+  
   
   return (
     <div className='grid grid-cols-1 gap-4 p-3 bg-white rounded-md shadow-md '>

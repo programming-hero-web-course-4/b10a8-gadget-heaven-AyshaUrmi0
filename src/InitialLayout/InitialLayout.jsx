@@ -65,7 +65,7 @@ const InitialLayout = () => {
         <Navbar cartCount={cartCount} wishlistCount={wishlistCount} />
         <ToastContainer position="top-center" />
 
-        <main className="container flex-grow px-4 mx-auto">
+        <main className="container flex-grow mx-auto">
           <Outlet />
         </main>
 

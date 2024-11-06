@@ -1,22 +1,27 @@
-/* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { CartContext } from './CardContext'; // Import the context
 import Heading from "./Heading";
 
 const CardCategory = () => {
-    const { handleAddToCart, handleAddToWishlist } = useContext(CartContext);
-    const { product_id } = useParams();
     const data = useLoaderData();
-  
-    // Find the product based on product_id, only if data is loaded
-    const product = data?.find((item) => item.product_id === Number(product_id));
+    const { handleAddToCart, handleAddToWishlist, wishlist } = useContext(CartContext);
+    const { product_id } = useParams();
+    console.log("CartContext in CardCategory:", { handleAddToCart, handleAddToWishlist, wishlist });
     
-    // Handle case where product is not found
+
+    
+    const product = data?.find((item) => item.product_id === Number(product_id));
+   
+    
+    
     if (!product) {
         console.warn("Product not found or data not loaded. Product ID:", product_id);
         return <p className="text-center text-red-500">Product not found.</p>;
     }
+
+    
+    const isInWishlist = wishlist && wishlist.some((item) => item.product_id === product.product_id);
 
     return (
         <div className="relative flex flex-col items-center min-h-screen mb-20 bg-gray-100">
@@ -27,11 +32,11 @@ const CardCategory = () => {
                 </div>
             </div>
 
-            {/* Product Details Card */}
+           
             <div className="absolute w-full max-w-4xl p-8 mx-auto bg-white rounded-lg shadow-lg top-48">
                 <div className="flex flex-col items-center md:flex-row">
                     
-                    {/* Product Image */}
+                  
                     <div className="flex justify-center mb-4 md:w-1/3 md:mb-0">
                         <img
                             src={product.product_image}
@@ -70,15 +75,26 @@ const CardCategory = () => {
 
                         {/* Action Buttons */}
                         <div className="flex mt-6">
+                            {/* Add to Cart Button */}
                             <button 
-                                onClick={handleAddToCart}
+                                onClick={(
+                                    
+                                ) =>
+                                    {
+                                        console.log("Add to Cart clicked", product);
+                                         handleAddToCart(product)}}
                                 className="px-4 py-2 mr-2 text-white bg-purple-600 rounded-md hover:bg-purple-700"
                             >
                                 Add to Cart
                             </button>
+
+                            {/* Add to Wishlist Button */}
                             <button 
-                                onClick={handleAddToWishlist} 
-                                className="w-8 h-8 p-2 text-purple-500 bg-white rounded-full"
+                                onClick={() =>{
+                                    console.log("Add to Cart wishlist", product); 
+                                    handleAddToWishlist(product)} }
+                                className={`w-8 h-8 p-2 ${isInWishlist ? "bg-gray-300 cursor-not-allowed" : "bg-white"}`}
+                                disabled={isInWishlist}
                             >
                                 <img src="https://img.icons8.com/?size=48&id=86721&format=png" alt="Wishlist Icon" />
                             </button>

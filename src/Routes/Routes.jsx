@@ -46,7 +46,8 @@ const route = createBrowserRouter([
             },
             {
                 path: '/dashboard',
-                element: <Dashboard />
+                element: <Dashboard />,
+                loader: ({ params }) => fetch('/Category.json')
             },
             {
                 path: '/support',
