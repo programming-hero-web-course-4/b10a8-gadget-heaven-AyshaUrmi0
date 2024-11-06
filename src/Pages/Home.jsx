@@ -10,14 +10,16 @@ const Home = () => {
             <Banner />
 
            
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-5 gap-4">
                
                 <div className="col-span-1">
+               
                     <AllCategory CategoryName={CategoryName} />
                 </div>
 
                
-                <div className="col-span-3">
+                <div className="col-span-4">
+                <h1 className="mb-4 text-3xl font-bold text-center text-purple-500">All Categories of Our Products</h1>
                     <Outlet />
                 </div>
             </div>

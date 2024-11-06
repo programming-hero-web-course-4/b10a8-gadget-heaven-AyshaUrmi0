@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ cartCount, wishlistCount }) => {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
@@ -38,11 +39,17 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex gap-4">
-        <button className="w-8 h-8 p-2 text-purple-500 bg-white rounded-full">
-       <img className='' src="https://img.icons8.com/?size=48&id=mlzugiBNw6GO&format=png" alt="" />
+      <button className="relative w-8 h-8 p-2 text-purple-500 bg-white rounded-full">
+          <img src="https://img.icons8.com/?size=48&id=mlzugiBNw6GO&format=png" alt="" />
+          <span className="absolute top-0 right-0 flex items-center justify-center w-4 h-4 text-xs text-white bg-red-500 rounded-full">
+            {cartCount}
+          </span>
         </button>
-        <button className="w-8 h-8 p-2 text-purple-500 bg-white rounded-full">
-         <img src="https://img.icons8.com/?size=48&id=86721&format=png" alt="" />
+        <button className="relative w-8 h-8 p-2 text-purple-500 bg-white rounded-full">
+          <img src="https://img.icons8.com/?size=48&id=86721&format=png" alt="" />
+          <span className="absolute top-0 right-0 flex items-center justify-center w-4 h-4 text-xs text-white bg-red-500 rounded-full">
+            {wishlistCount}
+          </span>
         </button>
       </div>
     </nav>
